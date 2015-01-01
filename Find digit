@@ -1,0 +1,30 @@
+package findDigit;
+
+import java.util.*;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		int temp, temp2;
+		int count;
+		int modnum;
+		for (int n = 0; n < num; n++) {
+			count = 0;
+			temp = sc.nextInt();
+			temp2 = temp;
+			while (temp != 0) {
+				modnum = temp % 10;
+				if (modnum != 0) {
+					if (temp2 % modnum == 0) {
+						count++;
+					}
+				}
+				temp = temp / 10;
+			}
+			System.out.println(count);
+		}
+		sc.close();
+	}
+}
