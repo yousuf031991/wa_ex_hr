@@ -1,0 +1,36 @@
+package loveLetterMystery;
+
+import java.util.*;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		String input;
+		char[] tempString;
+		sc.nextLine();
+		int length, ans, tempChar;
+		for (int i = 0; i < num; i++) {
+			input = sc.nextLine();
+			length = input.length();
+			ans = 0;
+			for (int j = 0; j < length / 2; j++) {
+				while (input.charAt(j) < input.charAt(length - j - 1)) {
+					tempString = input.toCharArray();
+					tempString[length - j - 1] -= 1;
+					input = String.valueOf(tempString);
+					ans++;
+				}
+				while (input.charAt(j) > input.charAt(length - j - 1)) {
+					tempString = input.toCharArray();
+					tempString[j] -= 1;
+					input = String.valueOf(tempString);
+					ans++;
+				}
+			}
+			System.out.println(ans);
+		}
+		sc.close();
+	}
+}
