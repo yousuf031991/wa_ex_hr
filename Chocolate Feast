@@ -1,0 +1,30 @@
+package chocolateFeast;
+
+import java.util.*;
+
+public class Solution {
+	public static int func(int a, int b, int c) {
+		int s1 = a / b;
+		int temp = s1;
+		int sq = 0;
+		;
+		while (temp >= c) {
+			sq += temp / c;
+			temp = temp / c + temp % c;
+		}
+		return (s1 + sq);
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int ar[] = new int[3];
+		int num = sc.nextInt();
+		for (int i = 0; i < num; i++) {
+			for (int j = 0; j < 3; j++) {
+				ar[j] = sc.nextInt();
+			}
+			System.out.println(func(ar[0], ar[1], ar[2]));
+		}
+		sc.close();
+	}
+}
