@@ -1,0 +1,17 @@
+package haloweenParty;
+
+import java.util.*;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		long numCuts;
+		for (int i = 0; i < num; i++) {
+			numCuts = sc.nextLong();
+			System.out.println((numCuts / 2) * (numCuts - (numCuts / 2)));
+		}
+		sc.close();
+	}
+}
