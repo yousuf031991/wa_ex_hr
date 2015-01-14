@@ -1,0 +1,41 @@
+package sherlockAndGCD;
+
+import java.util.*;
+
+public class Solution {
+
+	static int gcd(int m, int n) {
+		if (n == 0) {
+			return m;
+		}
+		return (gcd(n, m % n));
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int N, res;
+		loop: for (int i = 0; i < T; i++) {
+			N = sc.nextInt();
+			int arr[] = new int[N];
+			for (int j = 0; j < N; j++) {
+				arr[j] = sc.nextInt();
+			}
+			if (N == 1 && arr[0] != 1) {
+				System.out.println("NO");
+				continue;
+			}
+			for (int j = 0; j < N - 1; j++) {
+				for (int k = j + 1; k < N; k++) {
+					res = gcd(arr[j], arr[k]);
+					if (res == 1) {
+						System.out.println("YES");
+						continue loop;
+					}
+				}
+			}
+			System.out.println("NO");
+		}
+		sc.close();
+	}
+}
