@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int N, numThrees, maxNumFives;
+		for (int i = 0; i < T; i++) {
+			numThrees = 0;
+			maxNumFives = 0;
+			N = sc.nextInt();
+			for (int j = (N / 3); j >= 0; j--) {			
+				if (maxNumFives > j) {
+					break;
+				}
+				for (int k = (N / 5); k >= 0; k--) {
+					if ((3 * j) + (5 * k) == N) {
+						if (j > maxNumFives) {
+							maxNumFives = j;
+							numThrees = k;
+						}
+					}
+				}
+			}
+			if (maxNumFives == 0 && N % 5 == 0) {
+				numThrees = N / 5;
+			}
+			for (int j = 0; j < maxNumFives; j++) {
+				System.out.print(555);
+			}
+			for (int j = 0; j < numThrees; j++) {
+				System.out.print(33333);
+			}
+			if (maxNumFives == 0 && numThrees == 0) {
+				System.out.print(-1);
+			}
+			System.out.println();
+		}
+		sc.close();
+	}
+}
