@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n, a, b;
+		long ans;
+		LinkedHashMap<Long, Integer> tm = new LinkedHashMap<Long, Integer>();
+		for (int i = 0; i < T; i++) {
+			n = sc.nextInt();
+			a = sc.nextInt();
+			b = sc.nextInt();
+			tm.clear();
+			for (int j = 0; j < n; j++) {				
+				ans = 0;
+				if (a < b)
+					ans = ((j) * b) + (n - j - 1) * a;
+				else
+					ans = ((j) * a) + (n - j - 1) * b;
+				tm.put(ans, j);
+			}
+			for (Object key : tm.keySet()) {
+				System.out.print(key.toString() + " ");
+			}
+			System.out.println();
+		}
+		sc.close();
+	}
+}
