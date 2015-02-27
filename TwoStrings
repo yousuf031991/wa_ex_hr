@@ -1,0 +1,31 @@
+package twoStrings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+
+	public static void main(String[] args) throws NumberFormatException,
+			IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
+		bigloop: while (T-- > 0) {
+			Map<Character, Integer> a = new HashMap<Character, Integer>();
+			String temp = br.readLine();
+			for (int i = 0; i < temp.length(); i++) {
+				a.put(temp.charAt(i), new Integer(1));
+			}
+			String temp2 = br.readLine();
+			for (int i = 0; i < temp2.length(); i++) {
+				if (a.containsKey(temp2.charAt(i))) {
+					System.out.println("YES");
+					continue bigloop;
+				}
+			}
+			System.out.println("NO");
+		}
+	}
+}
