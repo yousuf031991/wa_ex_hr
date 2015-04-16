@@ -1,0 +1,42 @@
+	package kaprekarNumbers;
+	
+	import java.util.*;
+	
+	public class Solution {
+	
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			int p = sc.nextInt();
+			int q = sc.nextInt();
+			long sqr, lenLeft, leftInt, rightInt;
+			int len, count = 0;
+			String a, rightString, leftString;
+			for (long i = p; i <= q; i++) {
+				if (i < 9) {
+					if (i == 1) {
+						count++;
+						System.out.print("1 ");
+						continue;
+					} else {
+						continue;
+					}
+				}
+				sqr = i * i;
+				a = String.valueOf(sqr);
+				len = a.length();
+				lenLeft = len / 2;				
+				rightString = a.substring(0, (int) lenLeft);
+				leftString = a.substring((int) lenLeft, len);
+				leftInt = Integer.valueOf(leftString);
+				rightInt = Integer.valueOf(rightString);
+				if (leftInt + rightInt == i) {
+					count++;
+					System.out.print(i + " ");
+				}
+			}
+			if (count == 0) {
+				System.out.println("INVALID RANGE");
+			}
+			sc.close();
+		}
+	}
